@@ -1,0 +1,14 @@
+.my-orders{
+  margin-top: 20px;
+}
+
+
+.my-order-title{
+    color: rgb(2, 101, 2);
+    font-size: 18px;
+    font-weight:600;
+}
+
+.ordersContainer{
+    margin-top: 20px;
+}

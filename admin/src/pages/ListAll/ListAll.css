@@ -1,0 +1,33 @@
+.list-table{
+    border: 1px solid rgb(192, 219, 192);
+    border-collapse: collapse;
+
+}
+.table-title th{
+    border-bottom: 1px solid rgb(192, 219, 192);
+    padding-left: 10px;
+}
+.list-table-format img{
+    width: 20px;
+}
+.list-table-format tr {
+    height: 50px;
+    border: 1px solid rgb(192, 219, 192);
+    text-align: center;
+}
+
+.list-table-format td {
+    vertical-align: middle;
+    padding: 10px;
+}
+
+ .product-row button{
+   padding: 3px 5px;
+    margin: 0 5px;
+    background-color:rgb(168, 232, 201);
+    border-color: rgb(18, 119, 3);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: rgb(51, 64, 51) ;
+ }

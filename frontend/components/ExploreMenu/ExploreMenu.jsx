@@ -1,5 +1,5 @@
 import './ExploreMenu.css'
-import { menu_list } from '../../assets/assets'
+import { menu_list } from '../../src/assets/assets.js'
 
 function ExploreMenu ({category, setCategory}) {
     

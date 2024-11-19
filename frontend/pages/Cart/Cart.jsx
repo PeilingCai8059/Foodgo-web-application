@@ -4,7 +4,7 @@ import { StoreContext } from "../../context/StoreContext";
 import Navbar from "../../components/Navbar/Navbar";
 import Login from "../../components/Login/Login";
 import Footer from "../../components/Footer/Footer";
-import { assets } from "../../assets/assets";
+import { assets } from '../../src/assets/assets.js'
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {

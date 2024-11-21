@@ -4,7 +4,7 @@ import './Login.css'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
 
-const Login = ({setShowlogin}) => {
+function Login ({setShowlogin}) {
     const {url, setToken} = useContext(StoreContext);
     const [hasAccount, setHasAccount] = useState(true)
     const [userInfo, setUserInfo] = useState({

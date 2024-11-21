@@ -6,7 +6,6 @@ import axios from 'axios'
 
 const Login = ({setShowlogin}) => {
     const {url, setToken} = useContext(StoreContext);
-
     const [hasAccount, setHasAccount] = useState(true)
     const [userInfo, setUserInfo] = useState({
         name: "",
@@ -14,9 +13,17 @@ const Login = ({setShowlogin}) => {
         password: ""
     });
     
+    const PASSWORD_REGEX = {
+        capital: /(?=.*[A-Z])/,
+        length: /(?=.{8,15}$)/,
+        specialChar: /(?=.*?[#?!@$%^&*-])/,
+        digit: /(?=.*[0-9])/,
+    }
+    
     function onChangeHandler(e){
         const property = e.target.name 
         const value = e.target.value
+        
         setUserInfo( pre => ({
             ...pre,
             [property]:value
@@ -49,6 +56,13 @@ const Login = ({setShowlogin}) => {
                 {!hasAccount &&  <input type="text" onChange={onChangeHandler} value = {userInfo.name} name='name' placeholder='Your Name' required />}
                 <input type="email" onChange={onChangeHandler} value = {userInfo.email} name='email' placeholder='Your Email' required />
                 <input type="password" onChange={onChangeHandler}  value = {userInfo.password} name='password' placeholder='Password' required />
+                {!hasAccount &&  userInfo.password !== ''
+                    &&<ul>
+                    { !PASSWORD_REGEX.length.test(userInfo.password) && <li> Contains 8-15 characters </li>}
+                    {!PASSWORD_REGEX.capital.test(userInfo.password)&& <li>At least 1 uppercase character</li>}
+                    { !PASSWORD_REGEX.specialChar.test(userInfo.password)&& <li>At least one special character</li>}
+                    { !PASSWORD_REGEX.digit.test(userInfo.password) && <li>At least 1 numeric character</li>}
+                </ul>}
             </div>
             <button type='submit'>{hasAccount ? "Login" : "Sign Up"}</button>
             {!hasAccount && <div className="login-popup-condition">

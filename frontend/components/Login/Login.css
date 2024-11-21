@@ -32,13 +32,18 @@
 .login-popup-inputs{
     display: flex;
     flex-direction: column;
-    gap:20px
+    gap: 10px
 }
 .login-popup-inputs input{
     outline: none;
     border: solid 1px #c9c9c9;
     border-radius: 4px;
     padding: 10px;
+    margin-top: 10px;
+}
+.login-popup-inputs ul{
+    margin: 0px 30px;
+    color: rgb(113, 157, 94)
 }
 .login-popup-container button{
     border: none;

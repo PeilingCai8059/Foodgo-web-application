@@ -5,13 +5,15 @@ import Footer from "../../components/Footer/Footer";
 import {useState } from 'react'
 
 export default function Menu() {
-const [category,setCategory] = useState("All");
+  const [category,setCategory] = useState("All");
+
+
   return (
     <>
     <div className="app">
     <Navbar/>
     <ExploreMenu category={category} setCategory={setCategory} />
-    <FoodDisplay category={category} />
+    <FoodDisplay category={category}  />
     </div>
     <Footer />
     </>

@@ -9,6 +9,8 @@ function StoreContextProvider({children}){
     const [cartItems,setCartItems] = useState({});
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([]);
+    const [menu, setMenu] = useState("home");
+    const [searchString, setSearchString] = useState("");
 
     const url ="http://localhost:4000"
 
@@ -45,7 +47,11 @@ function StoreContextProvider({children}){
     const [showLogin, setShowlogin] = useState(false);
 
     async function fetchFoodList(){
-        const response = await axios.get(url+ "/api/food/all");
+        const response = await axios.get(url+ `/api/food/all`, {
+            params :{
+                searchString: searchString,
+            }
+        });
         setFoodList(response.data.data)
     }
 
@@ -63,13 +69,15 @@ function StoreContextProvider({children}){
             }
         }
         loadData();
-    }, [])
+    }, [searchString])
 
 
     const contextValue = {
         food_list,
         cartItems,
         setCartItems,
+        menu,
+        setMenu,
         addToCart,
         removeFromCart,
         showLogin,
@@ -77,7 +85,9 @@ function StoreContextProvider({children}){
         getTotal,
         url,
         token,
-        setToken
+        setToken,
+        setSearchString,
+        searchString
     }
     return (
         <StoreContext.Provider value={contextValue}>

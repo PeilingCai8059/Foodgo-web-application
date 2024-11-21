@@ -22,8 +22,9 @@ const addFood = async (req, res) => {
 
 //get all food
 const listFood = async (req, res) => {
+    const { searchString } = req.query;
     try {
-        const foods = await foodModel.find({});
+        const foods = await foodModel.find({ "name" : {"$regex": searchString, $options: 'i'}});
         res.json({success:true, data:foods})
     } catch (error) {
         console.log(error)

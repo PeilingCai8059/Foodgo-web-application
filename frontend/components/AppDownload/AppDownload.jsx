@@ -4,10 +4,10 @@ import './AppDownload.css'
 const AppDownload = () => {
   return (
     <div className="app-download" id="app-download">
-        <p>For Better Experience Download <br/> FoodGo App</p>
+        <p>For Better Experience, Download <br/> FoodGo App</p>
         <div className="app-download-platform">
-            <img src={assets.play_store} alt="Goolgle Play" />
-            <img src={assets.app_store} alt="Apple Store" />
+            <img src={assets.play_store} className="google" alt="Google Play" />
+            <img src={assets.app_store} className="apple" alt="Apple Store" />
         </div>
     </div>
   )
